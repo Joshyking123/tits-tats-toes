@@ -67,6 +67,16 @@ const announce = (type)=>{
     announcer.classList.remove('hide');
  
  }
+const isValidAction=(tile)=>{
+   if (tile.innerText==='X'||tile.innerText==='O'){
+      return false;
+   }
+
+   return true;
+}
+ const updateBoard =  (index) => {
+   board[index] = currentPlayer;
+}
 
 const changePlayer = () => {
    playerDisplay.classList.remove(`player${currentPlayer}`);
