@@ -53,19 +53,6 @@ tiles.forEach( (tile, index) => {
 
 resetButton.addEventListener("click", resetboard)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //50 linje+
 
 const announce = (type)=>{
