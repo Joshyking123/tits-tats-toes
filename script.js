@@ -1,16 +1,16 @@
-window.addEventListener('DOMContentLoaded', () => {
-   const tiles = Array.from(document.querySelectorAll('.tile'));
-   const playerDisplay = document.querySelector('.display-player');
-   const resetButton = document.querySelector('#reset');
-   const announcer = document.querySelector('.announcer');
+window.addEventListener("DOMContentLoaded", () => {
+   const tiles = Array.from(document.querySelectorAll(".tile"));
+   const playerDisplay = document.querySelector(".display-player");
+   const resetButton = document.querySelector("#reset");
+   const announcer = document.querySelector(".announcer");
 
-   let board = ['', '', '', '', '', '', '', '', ''];
-   let currentPlayer = 'X';
+   let board = ["", "", "", "", "", "", "", "", ""];
+   let currentPlayer = "X";
    let isGameActive = true;
 
-   const PLAYERX_WON = 'PLAYERX_WON';
-   const PLAYERO_WON = 'PLAYERO_WON';
-   const TIE = 'TIE';
+   const PLAYERX_WON = "PLAYERX_WON";
+   const PLAYERO_WON = "PLAYERO_WON";
+   const TIE = "uavgjort";
 
 
    /*
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
            const a = board[winCondition[0]];
            const b = board[winCondition[1]];
            const c = board[winCondition[2]];
-           if (a === '' || b === '' || c === '') {
+           if (a === "" || b === "" || c === "") {
                continue;
            }
            if (a === b && b === c) {
@@ -48,31 +48,31 @@ window.addEventListener('DOMContentLoaded', () => {
        }
 
    if (roundWon) {
-           announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
+           announce(currentPlayer === "X" ? PLAYERX_WON : PLAYERO_WON);
            isGameActive = false;
            return;
        }
 
-   if (!board.includes(''))
+   if (!board.includes(""))
        announce(TIE);
    }
 
    const announce = (type) => {
        switch(type){
            case PLAYERO_WON:
-               announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+               announcer.innerHTML = "Player <span class="playerO">O</span> Won";
                break;
            case PLAYERX_WON:
-               announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+               announcer.innerHTML = "Player <span class="playerX">X</span> Won";
                break;
            case TIE:
-               announcer.innerText = 'Tie';
+               announcer.innerText = "Uavgjort";
        }
-       announcer.classList.remove('hide');
+       announcer.classList.remove("hide");
    };
 
    const isValidAction = (tile) => {
-       if (tile.innerText === 'X' || tile.innerText === 'O'){
+       if (tile.innerText === "X" || tile.innerText === "O"){
            return false;
        }
 
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
    const changePlayer = () => {
        playerDisplay.classList.remove(`player${currentPlayer}`);
-       currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+       currentPlayer = currentPlayer === "X" ? "O" : "X";
        playerDisplay.innerText = currentPlayer;
        playerDisplay.classList.add(`player${currentPlayer}`);
    }
@@ -101,24 +101,24 @@ window.addEventListener('DOMContentLoaded', () => {
    }
    
    const resetBoard = () => {
-       board = ['', '', '', '', '', '', '', '', ''];
+       board = ["", "", "", "", "", "", "", "", ""];
        isGameActive = true;
-       announcer.classList.add('hide');
+       announcer.classList.add("hide");
 
-       if (currentPlayer === 'O') {
+       if (currentPlayer === "O") {
            changePlayer();
        }
 
        tiles.forEach(tile => {
-           tile.innerText = '';
-           tile.classList.remove('playerX');
-           tile.classList.remove('playerO');
+           tile.innerText = "";
+           tile.classList.remove("playerX");
+           tile.classList.remove("playerO");
        });
    }
 
    tiles.forEach( (tile, index) => {
-       tile.addEventListener('click', () => userAction(tile, index));
+       tile.addEventListener("click", () => userAction(tile, index));
    });
 
-   resetButton.addEventListener('click', resetBoard);
+   resetButton.addEventListener("click", resetBoard);
 });
