@@ -30,25 +30,55 @@ const winningConditions = [
    [2, 4, 6]
 ];
 const changePlayer = () => {
-    playerDisplay.classList.remove(`player${currentPlayer}`);
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    playerDisplay.innerText = currentPlayer;
-    playerDisplay.classList.add(`player${currentPlayer}`);
+   playerDisplay.classList.remove(`player${currentPlayer}`);
+   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+   playerDisplay.innerText = currentPlayer;
+   playerDisplay.classList.add(`player${currentPlayer}`);
 }
 const userAction = (tile, index) => {
-    if(isValidAction(tile) && isGameActivate) {
-        tile.innerText = currentPlayer;
-        tile.classList.add("player$(currentPlayer)");
-        updateBoard(index);
-        handleResultValidation();
-        changePlayer();
+   if(isValidAction(tile) && isGameActivate) {
+       tile.innerText = currentPlayer;
+       tile.classList.add("player$(currentPlayer)");
+       updateBoard(index);
+       handleResultValidation();
+       changePlayer();
 
-    }
+   }
 }
 
 tiles.forEach( (tile, index) => {
-    tile.addEventListener("click", () => userAction(tile, index));
+   tile.addEventListener("click", () => userAction(tile, index));
 
 })
 
 resetbutton.addEventListener("click", resetboard)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//50 linje+
+
+const announce = (type)=>{
+   switch(type){
+      case PLAYERO_WON:
+         announcer.innerHTML='Player <span class="playerO">O</span> Won';
+         break;
+      case PLAYERX_WON:
+         announcer.innerHTML='Player <span class="playerX">X</span> Won';
+         break;
+      case TIE:
+         announcer.innerText='Tie';
+   }
+   announcer.classList.remove('hide');
+
+}
