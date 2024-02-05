@@ -29,7 +29,22 @@ const winningConditions = [
    [0, 4, 8],
    [2, 4, 6]
 ];
-const userAction = (tile, index)
+const changePlayer = () => {
+    playerDisplay.classList.remove(`player${currentPlayer}`);
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    playerDisplay.innerText = currentPlayer;
+    playerDisplay.classList.add(`player${currentPlayer}`);
+}
+const userAction = (tile, index) => {
+    if(isValidAction(tile) && isGameActivate) {
+        tile.innerText = currentPlayer;
+        tile.classList.add("player$(currentPlayer)");
+        updateBoard(index);
+        handleResultValidation();
+        changePlayer();
+
+    }
+}
 
 tiles.forEach( (tile, index) => {
     tile.addEventListener("click", () => userAction(tile, index));
