@@ -52,4 +52,3 @@ tiles.forEach( (tile, index) => {
 })
 
 resetbutton.addEventListener("click", resetboard)
-console.log("hei")
