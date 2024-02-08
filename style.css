@@ -50,11 +50,11 @@
 }
 
 .playerX {
-    color:red;
+    color:rgb(246, 65, 95);
 }
 
 .playerO {
-    color: blue;
+    color: greenyellow;
 }
 
 .controls {
