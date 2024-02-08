@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Itim', cursive;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .background {
@@ -50,11 +50,11 @@
 }
 
 .playerX {
-    color: #09C372;
+    color:red;
 }
 
 .playerO {
-    color: #498AFB;
+    color: blue;
 }
 
 .controls {
