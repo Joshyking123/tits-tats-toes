@@ -14,11 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
    /*
-<<<<<<< HEAD
-       Indexes within the board
-=======
-       Indexes på boarden.
->>>>>>> ba969cca36ad3efe08c2a64ebfe1396b8c1c6149
+       boxene inni index
        [0] [1] [2]
        [3] [4] [5]
        [6] [7] [8]
